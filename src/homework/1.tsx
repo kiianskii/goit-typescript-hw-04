@@ -12,15 +12,21 @@ export function Observer({ children, onContentEndVisible }: Props) {
 
   useEffect(() => {
     // Вкажіть правильний тип для options, підказка, клас також можна вказувати як тип
-    class Options {
-      constructor(
-        public rootMargin: string,
-        public threshold: number,
-        public root: null
-      ) {}
-    }
+    // class Options {
+    //   constructor(
+    //     public rootMargin: string,
+    //     public threshold: number,
+    //     public root: null
+    //   ) {}
+    // }
 
-    const options = new Options("0px", 1.0, null);
+    // const options = new Options("0px", 1.0, null);
+
+    const options: IntersectionObserverInit = {
+    rootMargin: '0px',
+    threshold: 1.0,
+    root: null,
+  };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
